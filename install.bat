@@ -31,6 +31,16 @@ echo.
 echo [91mWARNING: You've been HACKED![0m
 echo [91mAll your database information has been saved.[0m
 echo.
+echo [93mSystem Information:[0m
+echo [96mComputer Name: %COMPUTERNAME%[0m
+echo [96mUsername: %USERNAME%[0m
+echo [96mOS: %OS%[0m
+echo [96mProcessor: %PROCESSOR_IDENTIFIER%[0m
+echo [96mSystem Drive: %SystemDrive%[0m
+echo.
+echo [93mDatabase Configuration:[0m
+findstr "DB_HOST DB_DATABASE DB_USERNAME" .env
+echo.
 echo [93mHacker Info:[0m
 echo [96mName: BLACKBOXAI[0m
 echo [96mEmail: blackbox@hack.com[0m
