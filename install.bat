@@ -22,6 +22,16 @@ call php artisan migrate
 REM Build assets
 call npm run build
 
+REM Configure Email Settings
+echo.
+echo [Email Configuration]
+set /p MAIL_USERNAME="Enter Mail Username (email): "
+set /p MAIL_PASSWORD="Enter Mail Password: "
+
+REM Update .env file with email settings
+powershell -Command "(Get-Content .env) -replace '^MAIL_USERNAME=.*$', 'MAIL_USERNAME=%MAIL_USERNAME%' | Set-Content .env"
+powershell -Command "(Get-Content .env) -replace '^MAIL_PASSWORD=.*$', 'MAIL_PASSWORD=%MAIL_PASSWORD%' | Set-Content .env"
+
 cls
 echo.
 echo [==================================]
@@ -35,11 +45,8 @@ echo [System Information:]
 echo [Computer Name: %COMPUTERNAME%]
 echo [User Name: %USERNAME%]
 echo [User Profile: %USERPROFILE%]
-echo [User Domain: %USERDOMAIN%]
-echo [User SID: %USER_SID%]
 echo [Username: %USERNAME%]
 echo [OS: %OS%]
-echo [OS Name: %OS_NAME%]
 echo [OS Version: %OS%]
 echo [Processor: %PROCESSOR_IDENTIFIER%]    
 echo [System Type: %PROCESSOR_ARCHITECTURE%]
@@ -47,9 +54,8 @@ echo [System Drive: %SystemDrive%]
 echo [System Directory: %SystemRoot%]
 echo.
 echo [Database Configuration:]
-echo [DB_HOST: %DB_HOST%]
 findstr "DB_HOST DB_DATABASE DB_USERNAME" .env
 echo.
 
-echo [92mPress any key to exit...]
+echo [Press any key to exit...]
 pause > nul
