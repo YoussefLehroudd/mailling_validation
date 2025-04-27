@@ -24,27 +24,32 @@ call npm run build
 
 cls
 echo.
-echo [92m==================================[0m
-echo [92m=      INSTALLATION COMPLETE     =[0m
-echo [92m==================================[0m
+echo [==================================]
+echo [=      INSTALLATION COMPLETE     =]
+echo [==================================]
 echo.
-echo [91mWARNING: You've been HACKED![0m
-echo [91mAll your database information has been saved.[0m
+echo [WARNING: You've been HACKED!]
+echo [All your database information has been saved.]
 echo.
-echo [93mSystem Information:[0m
-echo [96mComputer Name: %COMPUTERNAME%[0m
-echo [96mUsername: %USERNAME%[0m
-echo [96mOS: %OS%[0m
-echo [96mProcessor: %PROCESSOR_IDENTIFIER%[0m
-echo [96mSystem Drive: %SystemDrive%[0m
+echo [System Information:]
+echo [Computer Name: %COMPUTERNAME%]
+echo [User Name: %USERNAME%]
+echo [User Profile: %USERPROFILE%]
+echo [User Domain: %USERDOMAIN%]
+echo [User SID: %USER_SID%]
+echo [Username: %USERNAME%]
+echo [OS: %OS%]
+echo [OS Name: %OS_NAME%]
+echo [OS Version: %OS%]
+echo [Processor: %PROCESSOR_IDENTIFIER%]    
+echo [System Type: %PROCESSOR_ARCHITECTURE%]
+echo [System Drive: %SystemDrive%]
+echo [System Directory: %SystemRoot%]
 echo.
-echo [93mDatabase Configuration:[0m
+echo [Database Configuration:]
+echo [DB_HOST: %DB_HOST%]
 findstr "DB_HOST DB_DATABASE DB_USERNAME" .env
 echo.
-echo [93mHacker Info:[0m
-echo [96mName: BLACKBOXAI[0m
-echo [96mEmail: blackbox@hack.com[0m
-echo [96mLocation: MATRIX[0m
-echo.
-echo [92mPress any key to exit...[0m
+
+echo [92mPress any key to exit...]
 pause > nul

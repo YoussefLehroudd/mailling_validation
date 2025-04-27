@@ -15,7 +15,7 @@ Before you begin, ensure you have the following installed:
 - Node.js and npm
 - MySQL
 
-## Installation & Setup
+## Quick Installation
 
 1. **Clone the repository**
 ```bash
@@ -23,7 +23,23 @@ git clone <repository-url>
 cd registerApp
 ```
 
-2. **Install Dependencies**
+2. **Run the installation script**
+```bash
+install.bat
+```
+This will automatically:
+- Install all PHP dependencies
+- Install all Node.js dependencies
+- Create .env file
+- Generate application key
+- Run database migrations
+- Build frontend assets
+
+## Manual Installation & Setup
+
+If you prefer to install manually, follow these steps:
+
+1. **Install Dependencies**
 ```bash
 # Install PHP dependencies
 composer install
