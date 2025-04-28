@@ -10,17 +10,17 @@ use App\Mail\RegistrationSuccess;
 
 class RegistrationController extends Controller
 {
-    // عرض الفورمة
+    // afficher form
     public function showForm()
     {
         $registrations = Registration::latest()->get();
         return view('register', compact('registrations'));
     }
 
-    // معالجة التسجيل
+    // process login
     public function register(Request $request)
     {
-        // التحقق من البيانات
+        // check database
         $validated = $request->validate([
             'name' => 'required|string|min:3|max:255',
             'email' => [
@@ -36,14 +36,14 @@ class RegistrationController extends Controller
             'password' => 'required|string|min:6|confirmed',
         ]);
 
-        // تخزين البيانات في قاعدة البيانات
+        // stocker les données
         $registration = Registration::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
-        // إرسال الإيميل
+        // send email
         Mail::to($request->email)->send(new RegistrationSuccess($registration));
 
         return redirect()->route('register.form')->with('success', 'Registration successful. Please check your email!');
